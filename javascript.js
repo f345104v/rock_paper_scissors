@@ -5,12 +5,12 @@ function getComputerChoice(){
     let randomChoice = Math.round((Math.random() *2)); 
 
     if (randomChoice == 1){
-        return "Rock";
+        return "rock";
     }      
     else if (randomChoice ==2) {
-        return "Paper";
+        return "paper";
     }
-    else {return "Scissors";}
+    else {return "scissors";}
 }
 
 //console.log(getComputerChoice());
@@ -20,31 +20,32 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
 
     if (playerSelection==computerSelection) {
-        return "its a tie! play again";
+        return  "its a tie! play again";
     } 
-    else if (playerSelection== "Rock" && computerSelection == "Paper") {
-            return "You Lose! Paper beats Rock";
+    else if (playerSelection== "rock" && computerSelection == "paper") {
+            return "You Lose! paper beats rock";
     }
-    else if(playerSelection== "Paper" && computerSelection == "Scissors") {
-        return "You Lose! Scissors beat Paper";
+    else if(playerSelection== "paper" && computerSelection == "scissors") {
+        return "You Lose! scissors beat paper";
     }
-    else if(playerSelection== "Scissors" && computerSelection == "Rock") {
-        return "You Lose! Rock beat Scissors";
+    else if(playerSelection== "scissors" && computerSelection == "rock") {
+        return "You Lose! rock beat scissors";
     }
-    else if(playerSelection== "Paper" && computerSelection == "Rock") {
-        return "You Win! Paper beats Rock";
+    else if(playerSelection== "paper" && computerSelection == "rock") {
+        return "You Win! paper beats rock";
     }
-    else if(playerSelection== "Scissors" && computerSelection == "Paper") {
-        return "You Win! Scissors beats Paper";
+    else if(playerSelection== "scissors" && computerSelection == "paper") {
+        return "You Win! scissors beats paper";
     }
-    else if(playerSelection== "Rock" && computerSelection == "Scissors") {
-        return "You Win! Rock beats Scissors";
+    else if(playerSelection== "rock" && computerSelection == "scissors") {
+        return "You Win! rock beats scissors";
     }
+    else {return "that is not an Option, choose Rock, Paper or Scissors"}
     
 
 }
 
-const playerSelection = "Rock";
+const playerSelection = window.prompt("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors").toLowerCase();
 const computerSelection = getComputerChoice();
 
 console.log(playRound(playerSelection, computerSelection));
