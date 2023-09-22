@@ -1,4 +1,5 @@
 
+//let randomChoice = 0;
 
 //return a random # between 0-2
 function getComputerChoice(){
@@ -46,10 +47,14 @@ function playRound(playerSelection, computerSelection){
 }
 
 //request selection from player and turns it into lower case for comparison 
-const playerSelection = window.prompt("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors").toLowerCase();
-const computerSelection = getComputerChoice();
+const playerSelection = 'rock'//window.prompt("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors").toLowerCase();
+const computerSelection = [getComputerChoice(),getComputerChoice(),getComputerChoice(),getComputerChoice(),getComputerChoice()];
 
-//console.log(playRound(playerSelection, computerSelection));
+console.log(playRound(playerSelection, computerSelection[1]));
+console.log(playRound(playerSelection, computerSelection[2]));
+console.log(playRound(playerSelection, computerSelection[3]));
+console.log(playRound(playerSelection, computerSelection[4]));
+console.log(playRound(playerSelection, computerSelection[0]));
 
 // make 2 variables that will keep the score of player and computer
 
@@ -58,3 +63,5 @@ let computerScore = 0 ;
 let playerScore = 0 ;
 
 //get 5th letter of string return from play round function if w add 1 to player score if l add 1 to computer score
+
+
