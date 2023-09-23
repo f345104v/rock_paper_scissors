@@ -1,5 +1,4 @@
 
-//let randomChoice = 0;
 
 //return a random # between 0-2
 function getComputerChoice(){
@@ -46,10 +45,14 @@ function playRound(playerSelection, computerSelection){
 
 }
 
-//request selection from player and turns it into lower case for comparison 
-//const playerSelection = 'rock'//window.prompt("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors").toLowerCase();
+// request selection from player and turns it into lower case for comparison 
+
+                        
 const computerSelection = [getComputerChoice(),getComputerChoice(),getComputerChoice(),getComputerChoice(),getComputerChoice()];
 
+
+
+//get 5th letter of string return from play round function if w add 1 to player score if l add 1 to computer score
 //console.log(playRound(playerSelection, computerSelection[1]).charAt(4));
 //console.log(playRound(playerSelection, computerSelection[2]).charAt(4));
 //console.log(playRound(playerSelection, computerSelection[3]).charAt(4));
@@ -58,27 +61,78 @@ const computerSelection = [getComputerChoice(),getComputerChoice(),getComputerCh
 
 // make 2 variables that will keep the score of player and computer
 
-let computerScore = 0 ;
+let computerScore = 0;
 
-let playerScore = 0 ;
+let playerScore = 0;
 
-//get 5th letter of string return from play round function if w add 1 to player score if l add 1 to computer score
+
 function game(){
-    alert("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors")
-    
-    playerSelection = window.prompt("Round 1! Rock, Paper or Scissors!").toLowerCase();
-if (playRound(playerSelection, computerSelection[1]).charAt(4)=="W"){
-       return playerScore + 1;
-} else if (playRound(playerSelection, computerSelection[1]).charAt(4)=="L"){
-        return computerScore + 1;
-}
-playerSelection = window.prompt("Round 2! Rock, Paper or Scissors!").toLowerCase();
-//playRound(playerSelection, computerSelection[2]).charAt(4));
-//playRound(playerSelection, computerSelection[3]).charAt(4));
-//playRound(playerSelection, computerSelection[4]).charAt(4));
-//playRound(playerSelection, computerSelection[0]).charAt(4));
+
+    console.log("CPU "+computerScore,"YOU "+playerScore);
+
+    alert("You have been challenged to a best out of 5 by the machine! \n Choose Rock, Paper or Scissors") //starts the game lets player know the rules.
+
+    const playerSelection = [   window.prompt("Round 1! Rock, Paper or Scissors!").toLowerCase(),
+                                window.prompt("Round 2! Rock, Paper or Scissors!").toLowerCase(),
+                                window.prompt("Round 3! Rock, Paper or Scissors!").toLowerCase(),           //array to clean code up prompt 5 round input
+                                window.prompt("Round 4! Rock, Paper or Scissors!").toLowerCase(),
+                                window.prompt("Final Round! Rock, Paper or Scissors!").toLowerCase()
+
+                        ];
+                        //round 1
+    console.log(playRound(playerSelection[1], computerSelection[1]))
+    if (playRound(playerSelection[1], computerSelection[1]).charAt(4)=="W"){
+        console.log("CPU "+ computerScore, "YOU "+ (playerScore += 1));
+} else if (playRound(playerSelection[1], computerSelection[1]).charAt(4)=="L"){
+     console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+} else{
+
+    console.log("CPU "+computerScore,"YOU "+playerScore); 
 }
 
-game()
+                        //round 2
+console.log(playRound(playerSelection[2], computerSelection[2]))
+if (playRound(playerSelection[2], computerSelection[2]).charAt(4)=="W"){
+   console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
+} else if (playRound(playerSelection[2], computerSelection[2]).charAt(4)=="L"){
+ console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+} else{
 
-console.log("CPU "+computerScore,"YOU "+playerScore);
+console.log("CPU "+computerScore,"YOU "+playerScore); 
+}
+
+    //round 3
+    console.log(playRound(playerSelection[3], computerSelection[3]))
+    if (playRound(playerSelection[3], computerSelection[3]).charAt(4)=="W"){
+       console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
+} else if (playRound(playerSelection[3], computerSelection[3]).charAt(4)=="L"){
+     console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+} else{
+
+    console.log("CPU "+computerScore,"YOU "+playerScore); 
+}
+
+//round 4 
+console.log(playRound(playerSelection[4], computerSelection[4]))
+if (playRound(playerSelection[4], computerSelection[4]).charAt(4)=="W"){
+   console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
+} else if (playRound(playerSelection[4], computerSelection[4]).charAt(4)=="L"){
+ console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+} else{
+
+console.log("CPU "+computerScore,"YOU "+playerScore); 
+}
+//final round
+console.log(playRound(playerSelection[0], computerSelection[0]))
+if (playRound(playerSelection[0], computerSelection[0]).charAt(4)=="W"){
+   console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
+} else if (playRound(playerSelection[0], computerSelection[0]).charAt(4)=="L"){
+ console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+} else{
+
+console.log("CPU "+computerScore,"YOU "+playerScore); 
+}
+
+}
+
+game(computerScore, playerScore)
