@@ -20,7 +20,7 @@ function getComputerChoice(){
 function playRound(playerSelection, computerSelection){
 
     if (playerSelection==computerSelection) {
-        return  "its a tie!";
+        return "You Chose "+playerSelection+" and "+"Computer Chose "+computerSelection+ " its a tie!";
     } 
     else if (playerSelection== "rock" && computerSelection == "paper") {
             return "You Lose! paper beats rock";
@@ -58,6 +58,8 @@ let computerScore = 0;
 
 let playerScore = 0;
 
+let noobPlayer = 0 ;
+
 function game(){
 
     console.log("CPU "+computerScore,"YOU "+playerScore); //starting score
@@ -73,68 +75,88 @@ function game(){
                                 window.prompt("Final Round! Rock, Paper or Scissors!").toLowerCase()
                             ];
 
-                        //round 1
+                            //if player selection is not paper/rock/scissors keep a count of noob and display joke
+
+                             
+    //round 1
+    console.log("Round 1!");
     console.log(playRound(playerSelection[1], computerSelection[1])); //discribes round and declares win or loss
     
     if (playRound(playerSelection[1], computerSelection[1]).charAt(4)=="W"){ //if win add 1 to player score
         console.log("CPU "+ computerScore, "YOU "+ (playerScore += 1));
     } else if (playRound(playerSelection[1], computerSelection[1]).charAt(4)=="L"){ //if loose add 1 to cpu score
         console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+    } else if (playRound(playerSelection[1], computerSelection[1]).charAt(0)=="t"){ //noob counter
+        console.log("CPU "+computerScore,"YOU "+playerScore), (noobPlayer+=1);
     } else{
         console.log("CPU "+computerScore,"YOU "+playerScore); // if tie display current score
     }
-                        //round 2
-        console.log(playRound(playerSelection[2], computerSelection[2]));
+    //round 2
+    console.log("Round 2!");
+    console.log(playRound(playerSelection[2], computerSelection[2]));
 
     if (playRound(playerSelection[2], computerSelection[2]).charAt(4)=="W"){
         console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
     } else if (playRound(playerSelection[2], computerSelection[2]).charAt(4)=="L"){
         console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+    } else if (playRound(playerSelection[2], computerSelection[2]).charAt(0)=="t"){ //noob counter
+        console.log("CPU "+computerScore,"YOU "+playerScore), (noobPlayer+=1);
     } else{
         console.log("CPU "+computerScore,"YOU "+playerScore); 
     }
 
-                        //round 3
+    //round 3
+    console.log("Round 3!");                        
     console.log(playRound(playerSelection[3], computerSelection[3]));
     
     if (playRound(playerSelection[3], computerSelection[3]).charAt(4)=="W"){
        console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
     } else if (playRound(playerSelection[3], computerSelection[3]).charAt(4)=="L"){
         console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+    } else if (playRound(playerSelection[3], computerSelection[3]).charAt(0)=="t"){ //noob counter
+        console.log("CPU "+computerScore,"YOU "+playerScore), (noobPlayer+=1);
     } else{
         console.log("CPU "+computerScore,"YOU "+playerScore); 
     }
 
-                        //round 4 
+    //round 4 
+    console.log("Round 4!");
     console.log(playRound(playerSelection[4], computerSelection[4]));
     
     if (playRound(playerSelection[4], computerSelection[4]).charAt(4)=="W"){
         console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
     } else if (playRound(playerSelection[4], computerSelection[4]).charAt(4)=="L"){
         console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+    } else if (playRound(playerSelection[4], computerSelection[4]).charAt(0)=="t"){ //noob counter
+        console.log("CPU "+computerScore,"YOU "+playerScore), (noobPlayer+=1);
     } else{
         console.log("CPU "+computerScore,"YOU "+playerScore); 
     }
 
-                        //final round
+    //final round
+    console.log("Final Round!");                   
     console.log(playRound(playerSelection[0], computerSelection[0]));
 
     if (playRound(playerSelection[0], computerSelection[0]).charAt(4)=="W"){
         console.log("CPU "+ computerScore, "YOU "+(playerScore += 1));
     } else if (playRound(playerSelection[0], computerSelection[0]).charAt(4)=="L"){
         console.log("CPU "+ (computerScore += 1) , "YOU "+ playerScore );
+    } else if (playRound(playerSelection[0], computerSelection[0]).charAt(0)=="t"){ //noob counter
+        console.log("CPU "+computerScore,"YOU "+playerScore), (noobPlayer+=1);
     } else{
         console.log("CPU "+computerScore,"YOU "+playerScore); 
     }
 
     //game result
-    if (computerScore==playerScore) {
+    if (noobPlayer===5){
+        console.log("who doesn't know how to play Rock, Paper , Scissors?! boo this player \nBOOOOOOOOOOOOOOOOOOOOOOOOOOO!")
+    } else if (computerScore==playerScore && noobPlayer<1) {
         console.log("Its a tie! what are the odds of that! (it actually 1 in 129 million");
     } else if (computerScore>playerScore){
         console.log("You Loose!");
     } else {
-        console.log("You Win!")
+        console.log("You Win!");
     }
 }
 
-game(computerScore, playerScore)
+game(computerScore, playerScore, noobPlayer)
